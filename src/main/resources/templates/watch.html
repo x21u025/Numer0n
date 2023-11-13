@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Watch - Numer0n</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script th:inline="javascript">
+		const url = /*[[${ws}]]*/"ws";
+	</script>
+	<script type="text/javascript" src="js/watch.js"></script>
+
+	<link rel="stylesheet" href="css/game.css">
+	<link rel="stylesheet" href="css/base.css">
+	<head th:insert="~{head::header}"></head>
+</head>
+<body style="opacity: 1;">
+	<div style="display: none;">
+		<input type="text" id="text"><br>
+		<input type="button" value="送信" onclick="send()"><br>
+		<p id="message"></p>
+	</div>
+
+	<div class="Heading_txt" style="opacity: 0.8;"><span id="title">Numer0n</span></div>
+	<div class="main">
+		<div id="my">
+			<div class="cards can">
+				<div class="card"><span class="cardnum" id="my1"></span></div>
+				<div class="card"><span class="cardnum" id="my2"></span></div>
+				<div class="card"><span class="cardnum" id="my3"></span></div>
+			</div>
+			<div class="log" id="mylog">
+				<table></table>
+			</div>
+			<div class="buttons">
+				<input id="player1" type="button" value="Player1" onClick="togglePlayer1();">
+				<input id="player2" type="button" value="Player2" onClick="togglePlayer2();">
+			</div>
+		</div>
+		<div id="your">
+			<div class="cards can">
+				<div class="card"><span class="cardnum" id="your1"></span></div>
+				<div class="card"><span class="cardnum" id="your2"></span></div>
+				<div class="card"><span class="cardnum" id="your3"></span></div>
+			</div>
+			<div class="log" id="yourlog">
+				<table></table>
+			</div>
+			<div class="buttons">
+				<input id="correct" type="button" value="名前" onClick="toggleName();">
+				<input id="fin" type="button" value="戻る" onClick="next();">
+			</div>
+		</div>
+	</div>
+
+	<div id="lose" class="surr" style="display: none;">
+		<span>LOSE</span>
+	</div>
+
+	<div id="win" class="surr" style="display: none;">
+		<span>WIN</span>
+	</div>
+</body>
+</html>

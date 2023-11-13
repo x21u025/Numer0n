@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>WatchList - Numer0n</title>
+	<link rel="stylesheet" href="css/log.css">
+	<link rel="stylesheet" href="css/base.css">
+	<head th:insert="~{head::header}"></head>
+</head>
+<body style="opacity: 1;">
+	<div class="Heading_txt" style="opacity: 0.8; font-size: 4vmin;"><span>Now Playing</span></div>
+	<table border="1">
+		<tr>
+			<th class="no">No</th>
+			<th class="date">Date</th>
+			<th class="id">GameID</th>
+			<th>Player 1</th>
+			<th>Player 2</th>
+		</tr>
+		<tr th:each="np:${nowPlaying}">
+			<td>[[${np.getNo()}]]</td>
+			<td>[[${np.getDate()}]]</td>
+			<td><a th:href="|Watch?gameId=${np.getId()}|">[[${np.getId()}]]</a></td>
+			<th:block th:each="user:${battleUsers.get(np.getId())}">
+				<td th:if="${user != null}">[[${user.getName()} + '(' + ${user.getId()} + ')']]</td>
+				<td th:unless="${user != null}">null</td>
+			</th:block>
+		</tr>
+	</table>
+	<input id="back" type="button" value="戻る" onclick="location.href='Mypage'">
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Admin - Numer0n</title>
+	<link rel="stylesheet" href="css/admin.css">
+	<script type="text/javascript" src="js/admin.js"></script>
+	<link rel="stylesheet" href="css/base.css">
+	<head th:insert="~{head::header}"></head>
+</head>
+<body style="opacity: 1;">
+	<div class="Heading_txt" style="opacity: 0.8;"><span>Users</span></div>
+	<table id="sort_table" border="1">
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Pass</th>
+			<th>Admin</th>
+			<th>Rate</th>
+			<th>Win</th>
+			<th>Lose</th>
+			<th>Draw</th>
+			<th>Surrender</th>
+			<th>Hidden</th>
+		</tr>
+		<tr th:each="admin:${admins}">
+			<td>[[${admin.getUser().getId()}]]</td>
+			<td>[[${admin.getUser().getName()}]]</td>
+			<td>[[${admin.getUser().getPass()}]]</td>
+			<td>[[${admin.getUser().isAdmin() ? '*' : ''}]]</td>
+			<td>[[${admin.getLeaderBoard().getScore()}]]</td>
+			<td>[[${admin.getRecord().getWin()}]]</td>
+			<td>[[${admin.getRecord().getLose()}]]</td>
+			<td>[[${admin.getRecord().getDraw()}]]</td>
+			<td>[[${admin.getRecord().getSurrender()}]]</td>
+			<td><input type="checkbox" name="hidden" th:value="${admin.getUser().getId()}" th:checked="${admin.getUser().isHidden()}"></td>
+		</tr>
+	</table>
+	<div id="checkboxes">
+		<input id="hidden" type="checkbox" name="checkboxes" value="hidden">
+		<label for="hidden">非表示</label>
+		<br>
+		<input id="pass" type="checkbox" name="checkboxes" value="pass">
+		<label for="pass">パス表示</label>
+		<input type="button" value="再読み込み" onclick="reload();">
+	</div>
+	<input id="back" type="button" value="戻る" onclick="location.href='Mypage'">
+</body>
+</html>

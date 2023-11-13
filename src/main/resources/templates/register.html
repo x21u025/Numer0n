@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Register - Numer0n</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="css/login.css">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/register.css">
+	<head th:insert="~{head::header}"></head>
+</head>
+<body style="opacity: 1;">
+	<div class="Heading_txt" style="opacity: 0.8;"><span>Register</span></div>
+	<div id="login-form-wrap">
+		<h2>Register</h2>
+		<h4 th:if="${error} != null" th:text="${error} }"></h4>
+		<form id="login-form" action="Register" method="post">
+			<p>
+				<input type="text" id="id" name="id" placeholder="ID" required minlength="4" maxlength="32"><i class="validation"><span></span><span></span></i>
+			</p>
+			<p>
+				<input type="password" id="pass" name="pass" placeholder="Password" required minlength="8" maxlength="32"><i class="validation"><span></span><span></span></i>
+			</p>
+			<p>
+				<input type="password" id="passRe" name="passRe" placeholder="Password(再入力)" required minlength="8" maxlength="32"><i class="validation"><span></span><span></span></i>
+			</p>
+			<p>
+				<input type="text" id="name" name="name" placeholder="Name" autocomplete="new-password" required minlength="1" maxlength="32"><i class="validation"><span></span><span></span></i>
+			</p>
+			<p>
+				<input type="submit" id="login" value="登録">
+			</p>
+		</form>
+		<div id="create-account-wrap">
+			<p>ログインは <a href="Login">こちら</a><p>
+		</div>
+	</div>
+</body>
+</html>

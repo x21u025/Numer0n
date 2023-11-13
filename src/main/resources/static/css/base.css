@@ -1,0 +1,32 @@
+@charset "UTF-8";
+body{
+	background-color: rgba(52, 51, 82, 0.98);
+	opacity: 0.8;
+	background-image:  linear-gradient(#00195c 1px, transparent 1px), linear-gradient(to right, #00195c 1px, #7676c4 1px);
+	background-size: 20px 20px;
+}
+.Heading_txt {
+	width:auto;
+	display: flex;
+	align-items:center;
+	margin: auto;
+	font-size:90px;
+	letter-spacing:0em;
+	font-weight:700;
+	color:#0042FF;
+	text-shadow: 1px 1px 0px #FFFFFF;
+}
+.Heading_txt span{
+	padding-left:0em;
+	margin-left:0em;
+	margin-right:0em;
+}
+.Heading_txt:before,
+.Heading_txt:after {
+	content: "";
+	display: block;
+	flex: auto;
+	height:1px;
+	border-radius:0px;
+	background:#FFFFFF;
+}

@@ -1,0 +1,247 @@
+@charset "UTF-8";
+.Heading_txt {
+width:auto;
+display: flex;
+align-items:center;
+margin: auto;
+font-size:90px;
+letter-spacing:0em;
+font-weight:700;
+color:#0042FF;
+	text-shadow: 1px 1px 0px #FFFFFF;
+}
+.Heading_txt span{
+padding-left:0em;
+margin-left:0em;
+margin-right:0em;
+}
+.Heading_txt:before,
+.Heading_txt:after {
+content: "";
+display: block;
+flex: auto;
+height:1px;
+border-radius:0px;
+background:#FFFFFF;
+}
+.btn{
+	width:400px;
+	height:70px;
+	line-height:80px;
+	position: fixed;
+  top: calc(50vh);
+	left: calc(50vw - 200px);
+}
+.btn a{
+	display:block;
+	width:100%;
+	height:100%;
+	text-decoration: none;
+	background:#0042FF;
+	text-align:center;
+	color:#FFFFFF;
+	font-size:55px;
+	font-weight:bold;
+	border-radius:10px;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	box-shadow:5px 5px 0px 0px #DEDEDE ;
+}
+.btn a:hover{
+	background:#0099FF;
+	color:#DEDEDE;
+	margin-left:5px;
+	margin-top:5px;
+	box-shadow:none;
+}
+
+/*仮リーダーボード*/
+/* CSS - Shea Parker */
+
+/********* BASE **********/
+*, *:before, *:after {
+	/*
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	*/
+}
+
+body,html {
+	min-height:100%;
+}
+
+body{
+	background-color: rgba(52, 51, 82, 0.98);
+opacity: 0.8;
+background-image:  linear-gradient(#00195c 1px, transparent 1px), linear-gradient(to right, #00195c 1px, #7676c4 1px);
+background-size: 20px 20px;
+}
+@media screen and (max-width: 1070px){
+.leaderboard {display:none}
+}
+.leaderboard {
+	position:fixed;
+	right: 10px;
+	width:30%;
+	height:45%;
+	max-width:0px;
+	min-width:320px;
+	min-height:600px;
+	margin: 30px auto 0 auto;
+}
+
+.leaderboard h1{
+	text-align: center;
+	text-transform: uppercase;
+	margin:30px;
+	padding:0;
+	color: #ffffff;
+}
+
+.content {
+	position:relative;
+	width:70%;
+	margin:3px auto 0 auto;
+	min-width:300px;
+	box-shadow:0px 0px 1px 3px #ffffff ;
+}
+
+.content ul{
+	margin:0;
+	padding:0;
+	list-style: none;
+	border:5px solid #CCC;
+	background: rgba(40,40,40,0.75);
+	overflow: auto;
+	max-height: 185px;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+.content ul::-webkit-scrollbar{
+  display: none;
+}
+.content ul li{
+	position: relative;
+	color:#FFF;
+	font-family: helvetica;
+	padding:2% 5%;
+	border-bottom: 1px solid #555;
+}
+
+.content ul li:last-child{
+	border-bottom:none;
+}
+
+.name{
+	font-weight:bold;
+}
+.count{
+	right: 15px;
+	position: absolute;
+	display:inline-block;
+	color:#F00;
+	font-weight:bold;
+}
+.count:after{
+	content:' pts';
+	color:#CCC;
+	font-size:80%;
+	font-weight:normal;
+}
+
+
+/********* BLING **********/
+
+
+.animate {
+	-moz-animation: flashIt 0.2s ease 1;
+	-webkit-animation: flashIt 0.2s ease 1;
+	animation: flashIt 0.2s ease 1;
+}
+
+.animate .countold{
+	-moz-animation: spinIt 0.3s ease 1;
+	-webkit-animation: spinIt 0.3s ease 1;
+	animation: spinIt 0.3s ease 1;
+}
+
+
+@-moz-keyframes flashIt {
+	100% { opacity: 0; background-color: #FFF;}
+}
+@-webkit-keyframes flashIt {
+	100% { opacity: 0; background-color: #FFF;}
+}
+@keyframes flashIt {
+	100% { opacity: 0; }
+}
+
+@-moz-keyframes spinIt {
+	20% {-moz-transform: rotate(-10deg)}
+	40% {-moz-transform: rotate(10deg)}
+	60% {-moz-transform: rotate(-10deg)}
+	80% {-moz-transform: rotate(10deg)}
+	100% {-moz-transform: rotate(-10deg)}
+}
+@-webkit-keyframes spinIt {
+	20% {-webkit-transform: rotate(-10deg)}
+	40% {-webkit-transform: rotate(10deg)}
+	60% {-webkit-transform: rotate(-10deg)}
+	80% {-webkit-transform: rotate(10deg)}
+	100% {-webkit-transform: rotate(-10deg)}
+}
+@keyframes spinIt {
+	 20% {transform: rotate(-10deg)}
+	 40% {transform: rotate(10deg)}
+	 60% {transform: rotate(-10deg)}
+	 80% {transform: rotate(10deg)}
+	 100% {transform: rotate(-10deg)}
+ }
+
+table {
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+	background-color: white;
+}
+td {
+	text-align: center;
+	height: 1.5em;
+}
+#logout {
+	height: 50px;
+	width: 170px;
+	position: fixed;
+	top: calc(99% - 50px);
+	left: calc(99% - 170px);
+	font-size: 30px;
+	opacity: 0.8;
+}
+#howto {
+	height: 50px;
+	width: 50px;
+	position: fixed;
+	top: 1%;
+	left: 1%;
+	font-size: 30px;
+	opacity: 0.8;
+}
+#speeds {
+	height: 50px;
+	width: 225px;
+	position: fixed;
+	top: calc(99% - 50px);
+	left: 1%;
+	font-size: 30px;
+	background-color: white;
+	padding-left: 5px;
+}
+#speed-label {
+	vertical-align: middle;
+	border-radius: 10px;
+	width: 70px;
+	height: 30px;
+	font-size: 20px;
+}

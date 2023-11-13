@@ -1,0 +1,162 @@
+body {
+	height: 100svh;
+	margin: 0;
+	background-color: rgba(52, 51, 82, 0.98);
+	opacity: 0.8;
+	background-image:  linear-gradient(#00195c 1px, transparent 1px), linear-gradient(to right, #00195c 1px, #7676c4 1px);
+	background-size: 20px 20px;
+}
+.main {
+	margin: auto;
+	height: calc(calc(100% - 30px) - 135px);
+	width: 1200px;
+	display: flex;
+	padding-top: 30px;
+}
+#my {
+	height: 100%;
+	width: 50%;
+}
+#your {
+	height: 100%;
+	width: 50%;
+}
+.can {
+	background-color: green;
+}
+.discan {
+	background-color: red;
+}
+.draw {
+	background-color: orange;
+}
+
+.cards {
+	display: flex;
+	width: 480px;
+	height: 200px;
+	border: 2px solid black;
+	margin: auto;
+}
+.card {
+	width: 140px;
+	height: 180px;
+	border: 2px solid black;
+	margin: 10px;
+	background-color: white;
+}
+.cardnum {
+	width: 100%;
+	height: 100%;
+	font-size: 170px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 5%;
+}
+.eye {
+	position: relative;
+	top: 177px;
+	left: 2px;
+	width: 0;
+}
+.eye input {
+	border: none;
+	background: transparent;
+}
+hr {
+	transform: rotate(135deg);
+	width: 15px;
+	border: 0;
+	border-top: 2px solid black;
+	margin: 0;
+	padding: 0;
+	transform-origin: 0% 0%;
+	position: relative;
+	top: -16px;
+	left: 18px;
+}
+.dl {
+	display: none;
+}
+
+.log {
+	width: 480px;
+	height: 200px;
+	border: 2px solid black;
+	margin: 10px auto auto;
+	overflow: auto;
+	background-color: white;
+}
+.log table {
+	border: 2px;
+	width: 100%;
+}
+.log div {
+	position: relative;
+	border-bottom: 1px solid black;
+	font-size: 20px;
+	height: 30px;
+}
+.lognum {
+	position: absolute;
+	left: 10px;
+	letter-spacing: 10px;
+}
+.loghab {
+	position: absolute;
+	right: 10px;
+}
+.hit::after {
+	content: "hit";
+	font-size: 0.7em;
+	padding: 0 0.3em;
+}
+.blow::after {
+	content: "blow";
+	font-size: 0.7em;
+	padding: 0 0.3em;
+}
+
+.number {
+	display: grid;
+	width: 480px;
+	margin: 10px auto auto;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.number input {
+	font-size: 40px;
+}
+
+.buttons {
+	display: grid;
+	width: 480px;
+	margin: 10px auto auto;
+	grid-template-columns: 1fr 1fr;
+	height: 103px;
+}
+.buttons input {
+	font-size: 40px;
+}
+
+#win {
+	background-color: green;
+}
+#lose {
+	background-color: red;
+}
+.surr {
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100vw;
+	height: 100vh;
+}
+#win span, #lose span {
+	font-size: 35vmax;
+	width: 100%;
+	height: 100%;
+	display: block;
+	text-align: center;
+	line-height: 100vh;
+}

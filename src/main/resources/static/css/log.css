@@ -1,0 +1,52 @@
+#tableDiv {
+	margin-left: auto;
+	margin-right: auto;
+}
+table {
+	/* margin-top: 30px; */
+	margin-bottom: 60px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 95vw;
+	background-color: white;
+	word-break: break-all;
+	word-wrap: break-all;
+}
+td {
+	text-align: center;
+	height: 1.5em;
+}
+.no {
+	width: 40px;
+}
+.date {
+	width: 108px;
+}
+.id {
+	width: 320px;
+}
+.process {
+	width: 160px;
+}
+#back {
+	height: 50px;
+	width: 120px;
+	position: fixed;
+	top: calc(99% - 50px);
+	left: calc(99% - 120px);
+	font-size: 30px;
+	opacity: 0.8;
+}
+
+.search_box {
+	background-color: white;
+	width: fit-content;
+	padding: 2px 3px;
+	margin: 0 auto;
+}
+.search_box input {
+	margin: 0 2px;
+}
+.search_box input[type="number"] {
+	width: 50px;
+}

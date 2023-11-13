@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Logs - Numer0n</title>
+	<link rel="stylesheet" href="css/log.css">
+	<link rel="stylesheet" href="css/base.css">
+	<head th:insert="~{head::header}"></head>
+</head>
+<body style="opacity: 1;">
+	<div class="Heading_txt" style="opacity: 0.8; font-size: 4vmin;"><span>[[${header}]]</span></div>
+	<table border="1">
+	<th:block th:if="${isGameLogs && !isUserLogs}">
+		<tr>
+			<th class="no">No</th>
+			<th class="date">Date</th>
+			<th class="id">GameID</th>
+			<th>Player 1</th>
+			<th>Player 2</th>
+		</tr>
+		<tr th:each="gl:${gamelogs}">
+			<td>[[${gl.getNo()}]]</td>
+			<td>[[${gl.getDate()}]]</td>
+			<td><a th:href="|Log?gameId=${gl.getId()}|">[[${gl.getId()}]]</a></td>
+			<th:block th:each="user:${battleUsers.get(gl.getId())}">
+				<td th:if="${user != null}"><a th:href="|Log?userId=${user.getId()}|">[[${user.getName()} + '(' + ${user.getId()} + ')']]</a></td>
+				<td th:unless="${user != null}">null</td>
+			</th:block>
+		</tr>
+	</th:block>
+	<th:block th:unless="${isGameLogs && !isUserLogs}">
+		<tr>
+			<th class="no">No</th>
+			<th class="id">GameID</th>
+			<th class="date">Date</th>
+			<th class="process">Process</th>
+			<th>Player</th>
+			<th>Number</th>
+		</tr>
+		<tr th:each="gl:${gamelog}" th:with="user=${logic.getUser(users, gl)}">
+			<td>[[${gl.getNo()}]]</td>
+			<td><a th:href="|Log?gameId=${gl.getGameId()}|">[[${gl.getGameId()}]]</a></td>
+			<td>[[${gl.getDate()}]]</td>
+			<td>[[${gl.getProcess()}]]</td>
+			<td th:if="${user != null}"><a th:href="|Log?userId=${user.getId()}|">[[${user.getName()} + '(' + ${user.getId()} + ')']]</a></td>
+			<td th:unless="${user != null}">[[${gl.getPlayer()}]]</td>
+			<td>[[${gl.getNumber()}]]</td>
+		</tr>
+	</th:block>
+	</table>
+	<input th:if="${isGameLogs && !isUserLogs}" id="back" type="button" value="戻る" onclick="location.href='Mypage'">
+	<input th:unless="${isGameLogs && !isUserLogs}" id="back" type="button" value="戻る" onclick="location.href='Log'">
+
+</body>
+</html>

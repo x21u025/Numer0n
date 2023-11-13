@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>MyPage - Numer0n</title>
+	<head th:insert="~{head::header}"></head>
+
+	<script th:inline="javascript">
+		const url = /*[[${ws}]]*/"ws";
+	</script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="js/chat.js"></script>
+
+	<link rel="stylesheet" href="css/mypage.css">
+	<link rel="stylesheet" href="css/chat.css">
+</head>
+
+<body>
+	<div class="Heading_txt"><span th:text="${score}"></span></div>
+<div class='leaderboard'>
+	<h1><span>リーダーボード</span></h1>
+	<div class="content">
+		<ul style="box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;">
+			<li th:each="lb:${lbList}" class="animate">
+				<span class="name" th:text="${lb.getName()}"></span><!--名前-->
+				<span class="count" th:text="${lb.getScore()}"></span><!--スコア-->
+			</li>
+		</ul>
+	</div>
+</div>
+	<div class='btn'>
+		<a href='Queue'>バトル開始</a>
+	</div>
+	<div class='btn' style="top: calc(50vh + 90px);">
+		<a href='Watchlist'>観戦</a>
+	</div>
+	<th:block th:if="${session.user.isAdmin()}">
+		<div class='btn' style="top: calc(50vh + 180px);">
+			<a href='Log'>ログ一覧</a>
+		</div>
+		<div class='btn' style="top: calc(50vh + 270px); left: calc(50vw - 410px);">
+			<a href='Admin'>ユーザ一覧</a>
+		</div>
+		<div class='btn' style="top: calc(50vh + 270px); left: calc(50vw + 10px);">
+			<a href='AccessLog'>アクセスログ</a>
+		</div>
+	</th:block>
+	<th:block th:if="${score} >= 2000">
+		<div id="speeds">
+			<input id="speed" type="range" name="speed" min="1" max="1000" th:value="${speed}>">
+			<input type="number" id="speed-label" min="1" max="1000" th:value="${speed}">
+		</div>
+		<script>
+			// input要素
+			const inputElem = document.getElementById('speed');
+
+			// 埋め込む先の要素
+			const currentValueElem = document.getElementById('speed-label');
+
+			// 現在の値を埋め込む関数
+			const setCurrentValue = (val) => {
+				currentValueElem.value = val;
+				document.cookie = "speed=" + val;
+			}
+
+			// inputイベント時に値をセットする関数
+			const rangeOnChange = (e) =>{
+				setCurrentValue(e.target.value);
+			}
+
+			// 変更に合わせてイベントを発火する
+			inputElem.addEventListener('input', rangeOnChange);
+			// ページ読み込み時の値をセット
+			setCurrentValue(inputElem.value);
+
+			currentValueElem.addEventListener('input', (e) => {
+				inputElem.value = e.target.value;
+				document.cookie = "speed=" + e.target.value;
+			});
+		</script>
+	</th:block>
+	<input id="howto" type="button" value="?" onclick="location.href='Howto'">
+	<input id="logout" type="button" value="ログアウト" onclick="location.href='Logout'">
+
+	<div id="msgbox" class="close" style="left: 1%;">
+			<div id="your_container">
+				<div id="bms_messages_container">
+					<div id="bms_chat_header" onclick="toggleChat();">
+						<div id="bms_chat_user_status">
+							<div id="bms_status_icon">●</div>
+							<div id="bms_chat_user_name">全体チャット</div>
+						</div>
+					</div>
+					<div id="bms_messages"></div>
+					<div id="bms_send">
+						<textarea id="bms_send_message" onkeydown="onKeyNewLine(event,this)"></textarea>
+						<div id="bms_send_btn" onclick="sendChat();">送信</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</body></html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Game - Numer0n</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script th:inline="javascript">
+		const url = /*[[${ws}]]*/"ws";
+		let userId = /*[[${userId}]]*/"userId";
+	</script>
+	<script type="text/javascript" src="js/game.js"></script>
+
+	<link rel="stylesheet" href="css/game.css">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/chat.css">
+	<head th:insert="~{head::header}"></head>
+</head>
+<body style="opacity: 1;">
+	<div style="display: none;">
+		<input type="text" id="text"><br>
+		<input type="button" value="送信" onclick="send()"><br>
+		<p id="message"></p>
+	</div>
+
+	<div class="Heading_txt" style="opacity: 0.8;"><span id="title">Numer0n</span></div>
+	<div class="main">
+		<div id="my">
+			<div class="cards can">
+				<div class="card"><span class="cardnum" id="my1"></span></div>
+				<div class="card"><span class="cardnum" id="my2"></span></div>
+				<div class="card"><span class="cardnum" id="my3"></span></div>
+				<div class="eye"><input type="button" value="👁" onClick="dl();"><hr id="dl"></div>
+			</div>
+			<div class="log" id="mylog">
+				<table></table>
+			</div>
+			<div class="number">
+				<input type="button" value="0" id="0" onClick="setNum('0')">
+				<input type="button" value="1" id="1" onClick="setNum('1')">
+				<input type="button" value="2" id="2" onClick="setNum('2')">
+				<input type="button" value="3" id="3" onClick="setNum('3')">
+				<input type="button" value="4" id="4" onClick="setNum('4')">
+				<input type="button" value="5" id="5" onClick="setNum('5')">
+				<input type="button" value="6" id="6" onClick="setNum('6')">
+				<input type="button" value="7" id="7" onClick="setNum('7')">
+				<input type="button" value="8" id="8" onClick="setNum('8')">
+				<input type="button" value="9" id="9" onClick="setNum('9')">
+			</div>
+		</div>
+		<div id="your">
+			<div class="cards can">
+				<div class="card"><span class="cardnum" id="your1"></span></div>
+				<div class="card"><span class="cardnum" id="your2"></span></div>
+				<div class="card"><span class="cardnum" id="your3"></span></div>
+			</div>
+			<div class="log" id="yourlog">
+				<table></table>
+			</div>
+			<div class="buttons">
+				<input id="correct" type="button" value="決定" onClick="correct();">
+				<input id="fin" type="button" value="次へ" onClick="next();" style="display: none;">
+				<input id="surrender" type="button" value="降参" onClick="finish();">
+			</div>
+		</div>
+		<div id="msgbox" class="close">
+			<div id="your_container">
+				<div id="bms_messages_container">
+					<div id="bms_chat_header" onclick="toggleChat();">
+						<div id="bms_chat_user_status">
+							<div id="bms_status_icon">●</div>
+							<div id="bms_chat_user_name">相手</div>
+						</div>
+					</div>
+					<div id="bms_messages"></div>
+					<div id="bms_send">
+						<textarea id="bms_send_message"></textarea>
+						<div id="bms_send_btn" onclick="sendChat();">送信</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="lose" class="surr" style="display: none;">
+		<span>LOSE</span>
+	</div>
+
+	<div id="win" class="surr" style="display: none;">
+		<span>WIN</span>
+	</div>
+</body>
+</html>

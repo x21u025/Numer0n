@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Logs - Numer0n</title>
+	<link rel="stylesheet" href="css/log.css">
+	<link rel="stylesheet" href="css/base.css">
+	<script type="text/javascript" src="js/accesslog.js"></script>
+	<head th:insert="~{head::header}"></head>
+</head>
+<body style="opacity: 1;">
+	<div class="Heading_txt" style="opacity: 0.8;"><span>AccessLogs</span></div>
+	<div class="search_box">
+		<label for="page">ページ</label>
+		<input type="number" id="page" name="page" value="1">
+		<label for="size">1ページの件数</label>
+		<input type="number" id="size" name="size" value="100">
+		<input type="button" value="更新" id="reload">
+	</div>
+	<table border="1">
+		<tr>
+			<th class="no">No</th>
+			<th class="date">Date</th>
+			<th class="process">Process</th>
+			<th>Ip</th>
+			<th>Session</th>
+			<th>User</th>
+			<th>Page</th>
+			<th>Message</th>
+		</tr>
+		<tr th:each="al:${logs}">
+			<td>[[${al.getNo()}]]</td>
+			<td>[[${al.getDate()}]]</td>
+			<td>[[${al.getProcess()}]]</td>
+			<td>[[${al.getIp()}]]</td>
+			<td>[[${al.getSession()}]]</td>
+			<td>[[${logic.getUserName(users, al)}]]</td>
+			<td>[[${al.getPage()}]]</td>
+			<td>[[${al.getMessage()}]]</td>
+		</tr>
+	</table>
+	<input id="back" type="button" value="戻る" onclick="location.href='Mypage'">
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HowTo - Numer0n</title>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
+	<link rel="stylesheet" href="css/howto.css">
+	<link rel="stylesheet" href="css/base.css">
+	<head th:insert="~{head::header}"></head>
+</head>
+
+<body style="opacity: 1;">
+	<div class="Heading_txt" style="opacity: 0.8;"><span>遊び方</span></div>
+
+	<div class="wrapper">
+		<ul class="slider">
+			<li class="slider-item slider-item01"></li>
+			<li class="slider-item slider-item02"></li>
+			<li class="slider-item slider-item03"></li>
+			<li class="slider-item slider-item04"></li>
+			<li class="slider-item slider-item05"></li>
+			<li class="slider-item slider-item06"></li>
+			<li class="slider-item slider-item07"></li>
+			<li class="slider-item slider-item08"></li>
+			<li class="slider-item slider-item09"></li>
+			<li class="slider-item slider-item10"></li>
+		</ul>
+	<!--/wrapper--></div>
+	<script type="text/javascript" src="js/howto.js"></script>
+	<input id="return_up" type="button" value="!" th:onclick="|location.href='__${ref}__'|">
+	<input id="return" type="button" value="戻る" th:onclick="|location.href='__${ref}__'|">
+</body>
+</html>

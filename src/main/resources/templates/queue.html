@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Queue - Numer0n</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script th:inline="javascript">
+		const url = /*[[${ws}]]*/"ws";
+		let speed = /*[[${speed}]]*/"speed";
+	</script>
+	<script type="text/javascript" src="js/queue.js"></script>
+	<link rel="stylesheet" href="css/queue.css">
+	<link rel="stylesheet" href="css/base.css">
+	<head th:insert="~{head::header}"></head>
+</head>
+<body>
+	<div class="Heading_txt"><span>Numer0n</span></div>
+	<span id="msg">
+		Searching...
+	</span>
+	<span id="queue">0</span>
+	<input id="cancel" type="button" value="キャンセル" onclick="cancel();">
+</body>
+</html>
